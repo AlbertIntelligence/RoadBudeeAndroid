@@ -4,28 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.surface.roadbudee.MainActivity">
+    tools:context="com.example.surface.roadbudeeandroid.MainActivity">
 
 
     <VideoView
         android:id="@+id/videoView"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:scaleType="fitCenter" />
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo" />
+
         <Button
-            android:id="@+id/activateBtn"
+            android:id="@+id/button1"
+            style="@android:style/Widget.DeviceDefault.Light.Button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="@color/colorRoadbudee"
+            android:elevation="24dp"
+            android:padding="20dp"
+            android:text="ACTIVATE"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20dp"
-            android:padding="20dp"
-            android:textSize="15dp"
-            android:text="ACTIVATE" />
+            android:paddingBottom="20dp"
+            android:gravity="center"
+            android:ems="10"
+            android:textSize="20dp"
+            android:textColor="@color/colorRoadbudee"
+            android:inputType="textPersonName"
+            android:text="Don't have one ? " />
 
     </RelativeLayout>
 
