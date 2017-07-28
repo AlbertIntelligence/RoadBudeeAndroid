@@ -1,9 +1,11 @@
 package com.example.surface.roadbudeeandroid;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
@@ -14,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Set video background
         VideoView videoView = (VideoView) findViewById(R.id.videoView);
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
@@ -21,11 +24,32 @@ public class MainActivity extends AppCompatActivity {
         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.citytopview));
         videoView.setMediaController(null);
         videoView.start();
+
+        //Video always playing
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 mp.setLooping(true);
             }
         });
+    }
+
+    public void onButtonClick(View v) {
+        switch (v.getId()) {
+            //Go to enter your pincode page
+            case R.id.activateBtn:
+                Intent enterYourPinView = new Intent(MainActivity.this, EnterYourPin.class);
+                startActivity(enterYourPinView);
+                break;
+
+            //redirect to roadbudee online order webpage
+            case R.id.donthaveone:
+                Intent orderYourRoadBudeeLink = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.roadbudee.com/shop/appareil-roadbudee/"));
+                startActivity(orderYourRoadBudeeLink);
+                break;
+
+            default:
+                break;
+        }
     }
 }
