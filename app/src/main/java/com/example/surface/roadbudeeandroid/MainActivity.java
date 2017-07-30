@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*
+     * This function handles the button click listeners
+     * @param v : Current view
+     */
     public void onButtonClick(View v) {
         switch (v.getId()) {
             //Go to enter your pincode page
@@ -42,6 +46,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(enterYourPinView);
                 break;
 
+            default:
+                break;
+        }
+    }
+
+    /*
+     * This function handles the texts click listeners
+     * @param v : Current view
+     */
+    public void onClick(View v) {
+        switch (v.getId()) {
             //redirect to roadbudee online order webpage
             case R.id.donthaveone:
                 Intent orderYourRoadBudeeLink = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.roadbudee.com/shop/appareil-roadbudee/"));

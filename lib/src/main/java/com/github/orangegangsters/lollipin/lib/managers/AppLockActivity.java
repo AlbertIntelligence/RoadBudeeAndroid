@@ -3,6 +3,7 @@ package com.github.orangegangsters.lollipin.lib.managers;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.fingerprint.FingerprintManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
@@ -71,11 +72,11 @@ public abstract class AppLockActivity extends PinActivity implements KeyboardBut
      * If called in singleTop mode
      */
     public void showErrorMessage() {
-        /*View errorMsg = (View) findViewById(R.id.errorMessage);
+        View errorMsg = (View) findViewById(R.id.errorMessage);
         errorMsg.setVisibility(View.VISIBLE);
 
         View orderMsg = (View) findViewById(R.id.orderMessage);
-        orderMsg.setVisibility(View.VISIBLE);*/
+        orderMsg.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -442,7 +443,11 @@ public abstract class AppLockActivity extends PinActivity implements KeyboardBut
      */
     @Override
     public void onClick(View view) {
-        showForgotDialog();
+        //redirect to roadbudee online order webpage
+        if (view.getId() == R.id.orderMessage) {
+            Intent orderYourRoadBudeeLink = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.roadbudee.com/shop/appareil-roadbudee/"));
+            startActivity(orderYourRoadBudeeLink);
+        }
     }
 
     /**

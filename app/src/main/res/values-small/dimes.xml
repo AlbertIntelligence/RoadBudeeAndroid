@@ -8,6 +8,6 @@
     <dimen name="activity_dialog_positive_button_size">6sp</dimen>
     <dimen name="activity_dialog_negative_button_size">6sp</dimen>
 
-    <dimen name="logo_margin_top">40dp</dimen>
+    <dimen name="logo_margin_top">30dp</dimen>
     <dimen name="logo_padding">10dp</dimen>
 </resources>
