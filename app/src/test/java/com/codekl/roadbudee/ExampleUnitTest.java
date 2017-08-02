@@ -1,4 +1,4 @@
-package com.codekl.surface.roadbudee;
+package com.codekl.roadbudee;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.codekl.surface.roadbudee;
+package com.codekl.roadbudee;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.surface.roadbudeeandroid", appContext.getPackageName());
+        assertEquals("com.codekl.roadbudee", appContext.getPackageName());
     }
 }
