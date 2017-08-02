@@ -1,11 +1,19 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        roadbudeeconfig {
+            keyAlias 'RoadbudeeAndroidUploadKey'
+            keyPassword 'cacacaca11'
+            storeFile file('C:/Users/Surface/Desktop/CodeKL/Roadbudee/Mobile App/Android/keystores/roadbudee.jks')
+            storePassword 'monsterhunter11'
+        }
+    }
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.codekl.roadbudee"
-        minSdkVersion 16
+        minSdkVersion 23
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -15,17 +23,20 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.roadbudeeconfig
+        }
+        debug {
+            signingConfig signingConfigs.roadbudeeconfig
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(':lib')
-    compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
     compile 'uk.me.lewisdeane.ldialogs:ldialogs:1.2.0@aar'
     testCompile 'junit:junit:4.12'
