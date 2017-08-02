@@ -1,4 +1,4 @@
-package com.example.surface.roadbudeeandroid;
+package com.codekl.surface.roadbudee;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.surface.roadbudeeandroid">
+    package="com.codekl.roadbudee">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".SplashActivity"
+            android:name="com.codekl.roadbudee.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,9 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
+        <activity android:name="com.codekl.roadbudee.MainActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".EnterYourPin"
+        <activity android:name="com.codekl.roadbudee.EnterYourPin"
             android:screenOrientation="portrait"/>
     </application>
 

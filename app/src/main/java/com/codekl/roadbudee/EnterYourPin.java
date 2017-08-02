@@ -1,11 +1,13 @@
-package com.example.surface.roadbudeeandroid;
+package com.codekl.roadbudee;
 
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.widget.Toast;
+
 import com.github.orangegangsters.lollipin.lib.managers.AppLockActivity;
+
 import uk.me.lewisdeane.ldialogs.BaseDialog;
 import uk.me.lewisdeane.ldialogs.CustomDialog;
 
