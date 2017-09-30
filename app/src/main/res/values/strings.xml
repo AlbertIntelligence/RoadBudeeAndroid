@@ -8,4 +8,9 @@
     <string name="activity_dialog_decline">CANCEL</string>
     <string name="activity_dialog_content">Tap \'OK\' to log out, when you log back in you\'ll be able to create a new Pincode.\n\nIf you remember your Pincode, tap \'Cancel\' to go back.</string>
     <string name="activity_appcompat_message">I am a PinCompatActivity!</string>
+
+    <string name="title_activity_map_view">MapViewActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
