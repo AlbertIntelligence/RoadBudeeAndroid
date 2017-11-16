@@ -1,5 +1,6 @@
 package com.codekl.roadbudee;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -67,7 +68,10 @@ public class EnterYourPin extends AppLockActivity {
 
     @Override
     public void onPinFailure(int attempts) {
-        super.showErrorMessage();
+        //super.showErrorMessage();
+
+        Intent mapView = new Intent(EnterYourPin.this, MapsActivity.class);
+        startActivity(mapView);
     }
 
     @Override

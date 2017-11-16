@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "833336208705",
+    "firebase_url": "https://roadbudee-45d19.firebaseio.com",
+    "project_id": "roadbudee-45d19",
+    "storage_bucket": "roadbudee-45d19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833336208705:android:a6a531ba96d00be9",
+        "android_client_info": {
+          "package_name": "com.codekl.roadbudee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833336208705-ic9ga2npthga9j0g0sfstmp7kfjcm6o3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codekl.roadbudee",
+            "certificate_hash": "7258e0fe6e90d8150cd48b2e29e6f77f17bf217c"
+          }
+        },
+        {
+          "client_id": "833336208705-u651bld8svtjsn687r7qokgnmv52ihsi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8fPwLUHr79LHuwDaxbVxWJ3S2F5TzhUU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833336208705-u651bld8svtjsn687r7qokgnmv52ihsi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "833336208705-1rnnc00ak6p4odaelho6nlcddrk4ml3d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "RoadBudee"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
