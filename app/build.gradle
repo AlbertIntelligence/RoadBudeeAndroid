@@ -1,14 +1,6 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        roadbudeeconfig {
-            keyAlias 'RoadbudeeAndroidUploadKey'
-            keyPassword 'cacacaca11'
-            storeFile file('C:/Users/Surface/Desktop/CodeKL/Roadbudee/Mobile App/Android/keystores/roadbudee.jks')
-            storePassword 'monsterhunter11'
-        }
-    }
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
@@ -20,13 +12,8 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.roadbudeeconfig
-        }
         debug {
-            signingConfig signingConfigs.roadbudeeconfig
+
         }
     }
 }
