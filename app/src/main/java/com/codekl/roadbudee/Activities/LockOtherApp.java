@@ -34,6 +34,10 @@ public class LockOtherApp extends AppCompatActivity {
         }
     }
 
+    public void findForGround(){
+
+    }
+
 
 
 

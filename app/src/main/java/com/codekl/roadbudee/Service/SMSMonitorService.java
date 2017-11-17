@@ -3,15 +3,14 @@ package com.codekl.roadbudee.Service;
 /**
  * Updated by MonsieurPetion on 2017-11-15.
  */
-
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
 
@@ -22,11 +21,7 @@ public class SMSMonitorService extends Service {
 
         String response = "I'm driving with RoadBudee.I'll see your message when I get where I'm going";
 
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phoneNumber));
-        intent.putExtra("sms_body", response);
-        startActivity(intent);
-        Log.i("REPLY_TEXT",response);
-        Log.i("Originate address",phoneNumber);
+        sendSMS(phoneNumber,response);
     }
 
     private final BroadcastReceiver receiver1 = new BroadcastReceiver() {
@@ -49,6 +44,17 @@ public class SMSMonitorService extends Service {
             }
         }
     };
+
+    public void sendSMS(String phoneNo, String msg) {
+        try {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phoneNo, null, msg, null, null);
+            Log.i(TAG,"message sent");
+        } catch (Exception ex) {
+            Log.i(TAG,ex.getMessage().toString());
+            ex.printStackTrace();
+        }
+    }
 
     public void onCreate() {
         super.onCreate();
