@@ -1,4 +1,4 @@
-package com.codekl.roadbudee;
+package com.codekl.roadbudee.Activities;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.widget.Toast;
 
+import com.codekl.roadbudee.R;
 import com.github.orangegangsters.lollipin.lib.managers.AppLockActivity;
 
 import uk.me.lewisdeane.ldialogs.BaseDialog;
