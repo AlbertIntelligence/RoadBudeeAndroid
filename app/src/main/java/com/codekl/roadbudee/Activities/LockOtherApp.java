@@ -20,7 +20,6 @@ public class LockOtherApp extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
     public void findOtherPackageName(Context context){
 
@@ -32,10 +31,6 @@ public class LockOtherApp extends AppCompatActivity {
             Log.d(TAG, "Launch Activity :" + pm.getLaunchIntentForPackage(packageInfo.packageName));
 
         }
-    }
-
-    public void findForGround(){
-
     }
 
 
