@@ -23,7 +23,7 @@ import com.codekl.roadbudee.Service.SMSMonitorService;
 
 public class MainActivity extends AppCompatActivity {
 
-    LockOtherApp lockOtherApp = new LockOtherApp();
+    DeviceAppList deviceAppList = new DeviceAppList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        lockOtherApp.findOtherPackageName(MainActivity.this);
+        deviceAppList.findOtherPackageName(MainActivity.this);
         requestSilentNotificationPermission();
         requestSmsPermission();
         createSmsMonitor();

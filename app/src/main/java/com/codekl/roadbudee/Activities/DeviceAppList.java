@@ -7,15 +7,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.codekl.roadbudee.Model.DeviceAppListModel;
+
 import java.util.List;
 
 /**
  * Created by MonsieurPetion on 2017-11-16.
  */
 
-public class LockOtherApp extends AppCompatActivity {
-    public LockOtherApp activity;
+public class DeviceAppList extends AppCompatActivity {
+    public DeviceAppList activity;
     private static final String TAG = "LockOtherApp";
+    DeviceAppListModel deviceAppListModel =  new DeviceAppListModel();
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class LockOtherApp extends AppCompatActivity {
         final PackageManager pm = context.getPackageManager();
         List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
         for (ApplicationInfo packageInfo : packages) {
+            deviceAppListModel.getDeviceInfo().put(packageInfo.packageName,packageInfo.sourceDir);
             Log.d(TAG, "Installed package :" + packageInfo.packageName);
             Log.d(TAG, "Source dir : " + packageInfo.sourceDir);
             Log.d(TAG, "Launch Activity :" + pm.getLaunchIntentForPackage(packageInfo.packageName));

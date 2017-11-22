@@ -21,7 +21,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    LockOtherApp lockOtherApp = new LockOtherApp();
+    DeviceAppList deviceAppList = new DeviceAppList();
     private GoogleMap mMap;
 
 
