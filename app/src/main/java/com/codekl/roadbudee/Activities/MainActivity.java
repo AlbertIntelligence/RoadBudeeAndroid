@@ -13,6 +13,8 @@ import android.support.v13.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
@@ -21,14 +23,17 @@ import com.codekl.roadbudee.Service.SMSMonitorService;
 
 public class MainActivity extends AppCompatActivity {
 
-    LockOtherApp lockOtherApp = new LockOtherApp();
+    DeviceAppList deviceAppList = new DeviceAppList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setFullScreenMode();
         setContentView(R.layout.activity_main);
 
-        lockOtherApp.findOtherPackageName(MainActivity.this);
+
+
+        deviceAppList.findOtherPackageName(MainActivity.this);
         requestSilentNotificationPermission();
         requestSmsPermission();
         createSmsMonitor();
@@ -95,6 +100,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //always call this function before setContentView(R.layout.activity_main);
+    public  void setFullScreenMode(){
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
 
 
 

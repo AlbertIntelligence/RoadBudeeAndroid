@@ -5,6 +5,9 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.codekl.roadbudee.R;
@@ -14,15 +17,20 @@ import uk.me.lewisdeane.ldialogs.BaseDialog;
 import uk.me.lewisdeane.ldialogs.CustomDialog;
 
 /**
- * Created by Surface on 2017-07-26.
+ * Created by Kodeu on 2017-07-26.
  */
 
 public class EnterYourPin extends AppLockActivity {
 
     private static final int REQUEST_CODE_ENABLE = 11;
 
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setFullScreenMode();
+    }
     @Override
     public void showForgotDialog() {
+        //setFullScreenMode();
         Resources res = getResources();
         // Create the builder with required paramaters - Context, Title, Positive Text
         CustomDialog.Builder builder = new CustomDialog.Builder(this,
@@ -83,5 +91,12 @@ public class EnterYourPin extends AppLockActivity {
     @Override
     public int getPinLength() {
         return super.getPinLength();//you can override this method to change the pin length from the default 4
+    }
+
+    //always call this function before setContentView(R.layout.activity_main);
+    public  void setFullScreenMode(){
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 }
