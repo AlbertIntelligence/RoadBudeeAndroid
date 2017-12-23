@@ -1,6 +1,8 @@
 package com.codekl.roadbudee.Activities;
 
 import android.Manifest;
+import android.annotation.TargetApi;
+import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -8,34 +10,41 @@ import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v13.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.MediaController;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.codekl.roadbudee.R;
+import com.codekl.roadbudee.Service.ObservableBoolean;
 import com.codekl.roadbudee.Service.SMSMonitorService;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
-    LockOtherApp lockOtherApp = new LockOtherApp();
+    public final ObservableBoolean appPinLock = new ObservableBoolean();
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lockOtherApp.findOtherPackageName(MainActivity.this);
+        enableLockState();
+
+
+
+
         requestSilentNotificationPermission();
         requestSmsPermission();
         createSmsMonitor();
         makeNotificationSilent();
-
-
-
 
         //Set video background
         VideoView videoView = (VideoView) findViewById(R.id.videoView);
@@ -53,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void requestSmsPermission() {
 
@@ -96,6 +106,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public void enableLockState() {
+        if (!isLockState()) {
+            startLockTask();
+        }
+
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public void disableLockState() {
+        if (isLockState()) {
+            try {
+                stopLockTask();
+            }catch (SecurityException e){
+                // Log.d(TAG, "securityException: " + e.getLocalizedMessage());
+            }
+
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    public boolean isLockState() {
+        //boolean isLocked = false;
+        ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        try {
+
+            if (am.getLockTaskModeState() == ActivityManager.LOCK_TASK_MODE_NONE) {
+                //Log.d(TAG, "Lock task mode is not active.");
+            } else {
+                // Log.d(TAG, "Lock task mode is active.");
+                this.appPinLock.set(true);
+            }
+        } catch (Exception e) {
+            //Log.d(TAG, "exception: ",e);
+        }
+        return this.appPinLock.get();
+    }
 
 
     /*
@@ -103,32 +150,25 @@ public class MainActivity extends AppCompatActivity {
      * @param v : Current view
      */
     public void onButtonClick(View v) {
-        switch (v.getId()) {
-            //Go to enter your pincode page
-            case R.id.activateBtn:
-                Intent enterYourPinView = new Intent(MainActivity.this, EnterYourPin.class);
-                startActivity(enterYourPinView);
-                break;
 
-            default:
-                break;
+        if(isLockState()) {
+            Toast.makeText(getApplicationContext(), "You can now start your car", Toast.LENGTH_SHORT).show();
+            switch (v.getId()) {
+                //Go to enter your pincode page
+                case R.id.activateBtn:
+                    Intent enterYourPinView = new Intent(MainActivity.this, EnterYourPin.class);
+                    startActivity(enterYourPinView);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "Accept pin app to start your car", Toast.LENGTH_SHORT).show();
+            enableLockState();
         }
     }
 
-    /*
-     * This function handles the texts click listeners
-     * @param v : Current view
-     */
-    public void onClick(View v) {
-        switch (v.getId()) {
-            //redirect to roadbudee online order webpage
-            case R.id.donthaveone:
-                Intent orderYourRoadBudeeLink = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.roadbudee.com/shop/appareil-roadbudee/"));
-                startActivity(orderYourRoadBudeeLink);
-                break;
 
-            default:
-                break;
-        }
-    }
 }
