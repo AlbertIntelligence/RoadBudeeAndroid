@@ -6,8 +6,10 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
 import com.codekl.roadbudee.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -16,6 +18,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.ramotion.circlemenu.CircleMenuView;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -29,6 +32,39 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        final CircleMenuView menu = findViewById(R.id.circle_menu);
+        menu.setEventListener(new CircleMenuView.EventListener() {
+            @Override
+            public void onMenuOpenAnimationStart(@NonNull CircleMenuView view) {
+                Log.d("D", "onMenuOpenAnimationStart");
+            }
+
+            @Override
+            public void onMenuOpenAnimationEnd(@NonNull CircleMenuView view) {
+                Log.d("D", "onMenuOpenAnimationEnd");
+            }
+
+            @Override
+            public void onMenuCloseAnimationStart(@NonNull CircleMenuView view) {
+                Log.d("D", "onMenuCloseAnimationStart");
+            }
+
+            @Override
+            public void onMenuCloseAnimationEnd(@NonNull CircleMenuView view) {
+                Log.d("D", "onMenuCloseAnimationEnd");
+            }
+
+            @Override
+            public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int index) {
+                Log.d("D", "onButtonClickAnimationStart| index: " + index);
+            }
+
+            @Override
+            public void onButtonClickAnimationEnd(@NonNull CircleMenuView view, int index) {
+                Log.d("D", "onButtonClickAnimationEnd| index: " + index);
+            }
+        });
 
     }
 
