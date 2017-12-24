@@ -41,9 +41,6 @@
             android:name=".Activities.MainActivity"
             android:screenOrientation="portrait"
             android:lockTaskMode="if_whitelisted" />
-        <activity
-            android:name=".Activities.EnterYourPin"
-            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

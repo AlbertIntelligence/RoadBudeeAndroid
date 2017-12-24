@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity  {
             switch (v.getId()) {
                 //Go to enter your pincode page
                 case R.id.activateBtn:
-                    Intent enterYourPinView = new Intent(MainActivity.this, EnterYourPin.class);
+                    Intent enterYourPinView = new Intent(MainActivity.this, MapsActivity.class);
                     startActivity(enterYourPinView);
                     break;
 

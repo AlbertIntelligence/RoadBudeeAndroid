@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.codekl.roadbudee.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -58,6 +59,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int index) {
                 Log.d("D", "onButtonClickAnimationStart| index: " + index);
+                if(index == 0){
+                    Toast.makeText(getApplicationContext(), "This is index" + index, Toast.LENGTH_SHORT).show();
+                }
+                else if(index == 1){
+                    Toast.makeText(getApplicationContext(), "This is index" + index, Toast.LENGTH_SHORT).show();
+                }
+                else if(index == 2){
+                    Toast.makeText(getApplicationContext(), "This is index" + index, Toast.LENGTH_SHORT).show();
+                }
+                else if(index == 3){
+                    Toast.makeText(getApplicationContext(), "This is index" + index, Toast.LENGTH_SHORT).show();
+                }
+                else if(index == 4){
+                    Toast.makeText(getApplicationContext(), "This is index" + index, Toast.LENGTH_SHORT).show();
+                }
+
             }
 
             @Override
@@ -106,4 +123,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
     }
+
+
+
+
 }
