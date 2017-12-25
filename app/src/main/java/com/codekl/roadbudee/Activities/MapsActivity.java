@@ -13,6 +13,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.codekl.roadbudee.R;
+import com.codekl.roadbudee.View.GPSFragment;
+import com.codekl.roadbudee.View.TakeTicketFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -58,9 +60,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int index) {
+                com.codekl.roadbudee.Custom.CustomFragment f = null;
+
                 Log.d("D", "onButtonClickAnimationStart| index: " + index);
                 if(index == 0){
-                    Toast.makeText(getApplicationContext(), "This is index" + index, Toast.LENGTH_SHORT).show();
+                    f = new TakeTicketFragment();
                 }
                 else if(index == 1){
                     Toast.makeText(getApplicationContext(), "This is index" + index, Toast.LENGTH_SHORT).show();
@@ -72,8 +76,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Toast.makeText(getApplicationContext(), "This is index" + index, Toast.LENGTH_SHORT).show();
                 }
                 else if(index == 4){
-                    Toast.makeText(getApplicationContext(), "This is index" + index, Toast.LENGTH_SHORT).show();
+                    f =  new GPSFragment();
                 }
+
+                if (f == null)
+                    return;
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.map, f).commit();
+
 
             }
 
